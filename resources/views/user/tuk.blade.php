@@ -1,0 +1,72 @@
+@extends('base')
+
+@section('css')
+@endsection
+@section('meta')
+    {!! SEO::generate(true) !!}
+@endsection
+
+@section('content')
+    <div class="inner-header bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-6 text-center text-sm-start mb-2 mb-sm-0">
+                    <h1 class="breadcrumb-title mb-0">Tempat Uji Kompetensi (TUK)</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb d-flex justify-content-center justify-content-sm-end ms-auto">
+                        <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fas fa-home me-1"></i>Beranda</a>
+                        </li>
+                        <li class="breadcrumb-item active"><span>TUK</span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================================
+                                                                                                                                                                                        Inner Header -->
+
+    <!--=================================
+                                                                                                                                                                                        Case Study -->
+    <section class="space-ptb case-study">
+        <div class="container">
+            <div class="row">
+                @foreach ($tuk as $item)
+                    <div class="col-lg-4 col-sm-6 pb-2 mb-4">
+                        <div class="case-study-item">
+                            <div class="case-study-img">
+                                <img class="img-fluid" src="{{ asset('gambar/tuk/') . '/' . $item->gambar }}" alt="">
+                                <a target="_blank" href="{{ $item->maps }}"><i class="fa fa-map-marker"></i></a>
+                            </div>
+                            <div class="case-study-info">
+                                <h6 class="case-study-title"><a target="_blank" href="{{ $item->maps }}">
+                                        {{ $item->lokasi }}</a>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
+        </div>
+    </section>
+
+    <section class="space-pb ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="bg-light text-center p-4 p-md-5">
+                        <h4>Interested in becoming a partner?</h4>
+                        <p>Interested in becoming a partner? We would love to know more about your company and why you
+                            believe a partnership would be profitable!</p>
+                        <a class="btn btn-primary btn-flat mt-3" href="{{ url('kontak') }}">Kontak Kami</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection
+
+
+@push('js')
+@endpush

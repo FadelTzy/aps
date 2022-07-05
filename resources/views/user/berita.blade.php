@@ -1,0 +1,133 @@
+  @extends('base')
+
+  @section('css')
+  @endsection
+  @section('meta')
+      {!! SEO::generate(true) !!}
+  @endsection
+
+  @section('content')
+      <div class="inner-header bg-light">
+          <div class="container">
+              <div class="row align-items-center">
+                  <div class="col-sm-6 text-center text-sm-start mb-2 mb-sm-0">
+                      <h1 class="breadcrumb-title mb-0">
+                          @if (Request::has('k'))
+                              @php
+                                  $ks = DB::table('kategoris')
+                                      ->where('id', Request::get('k'))
+                                      ->select('nama')
+                                      ->first();
+                              @endphp
+                              {{ $ks->nama }}
+                          @endif
+                      </h1>
+                      @if (Request::has('k') || Request::has('q'))
+                          <span>Pencarian : @if (Request::has('k'))
+                                  kategori
+                              @endif
+                              @if (Request::has('q'))
+                                  keyword {{ Request::get('q') }}
+                              @endif
+                          </span>
+                      @endif
+
+                  </div>
+                  <div class="col-sm-6">
+                      <ol class="breadcrumb d-flex justify-content-center justify-content-sm-end ms-auto">
+                          <li class="breadcrumb-item"><a href="{{ url('/') }}"><i
+                                      class="fas fa-home me-1"></i>Beranda</a>
+                          </li>
+                          <li class="breadcrumb-item active"><span>Berita</span></li>
+                      </ol>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <section style="margin-top:15px " class=" case-study">
+          <div class="container">
+              <div class="bg-light rounded mt-1 mb-2 mb-md-1 p-2">
+                  <div class="justify-content-between" style="display: flex;">
+                      <div class="col-sm-6 col-lg-3 text-white mb-3 mb-lg-0">
+                          <div class="widget">
+                              <form id="formk" class="form-inline input-with-btn">
+                                  <div class="mb-3">
+                                      <select name="k" class="form-control" id="pilihk">
+                                          <option selected>Pilih Kategori</option>
+                                          @foreach ($kategori as $k)
+                                              <option value="{{ $k->id }}">{{ $k->nama }}</option>
+                                          @endforeach
+
+                                      </select>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+
+                      <div class="col-sm-6 col-lg-3 ">
+                          <div class="widget">
+                              <form class="form-inline input-with-btn">
+                                  <div class="mb-3">
+                                      <input type="text" name="q" class="form-control form-control-sm" placeholder="Search">
+                                  </div>
+                                  <button type="submit" class="btn btn-sm btn-primary">Cari</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  @if ($berita->count() == 0)
+                      <div style="height: 300px" class="text-center ">
+                          <h6 class="case-study-title">Postingan tidak tersedia, silahkan cari dengan keyword yang berbeda.
+                          </h6>
+                      </div>
+                  @endif
+                  @foreach ($berita as $b)
+                      <div class="col-lg-4 col-sm-6 pb-2 mb-4">
+                          <div class="case-study-item">
+                              <div class="case-study-img">
+                                  <img style="height: 250px" class="img-fluid"
+                                      src="{{ asset('gambar/thumbnail/') . '/' . $b->gambar }}" alt="">
+                                  <a href="{{ url('berita/') . '/' . $b->slug }}"><i
+                                          class="far fa-arrow-alt-circle-right"></i></a>
+                              </div>
+
+                              <div class="case-study-info">
+                                  <div style="display: flex; justify-content: space-between;color:#30b666">
+                                      <a class="case-study-category" href="#">{{ $b->kategori->nama }} </a>
+                                      <span class=" case-study-category">{{ $b->tanggal }}</span>
+                                  </div>
+                                  <h6 class="case-study-title"><a
+                                          href="{{ url('berita/') . '/' . $b->slug }}">{{ $b->judul }}</a>
+                                  </h6>
+                              </div>
+                          </div>
+                      </div>
+                  @endforeach
+
+
+
+
+
+              </div>
+
+              <div class="row">
+                  <div class="col-md-12">
+                      {{ $berita->links('vendor.pagination.bootstrap-4') }}
+                  </div>
+              </div>
+          </div>
+      </section>
+  @endsection
+
+
+  @push('js')
+      <script>
+          $("#pilihk").on('change', function(id) {
+              $("#formk").trigger('submit');
+          })
+      </script>
+  @endpush
