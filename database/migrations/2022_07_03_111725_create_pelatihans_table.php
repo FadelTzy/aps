@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('pelatihans', function (Blueprint $table) {
             $table->id();
             $table->string('judul')->nullable();
+            $table->string('id_kategori')->nullable();
+            $table->string('slug')->nullable();
+
             $table->string('image')->nullable();
             $table->string('tanggal')->nullable();
             $table->string('status')->nullable();

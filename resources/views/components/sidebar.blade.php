@@ -34,6 +34,28 @@
                 </ul>
             </li>
             <li class="parent {{ Request::segment(2) == 'data-master' ? 'active' : '' }}"><a href="#"><i
+                        class="fa fa-suitcase"></i> <span>Manajemen Pelatihan</span></a>
+                <ul class="children">
+
+                    <li class="{{ Request::is('admin/pelatihan') ? 'active' : '' }}"><a
+                            href="{{ route('pelatihan.index') }}">Pelatihan</a></li>
+                    <li class="{{ Request::is('admin/kategori') ? 'active' : '' }}"><a
+                            href="{{ url('admin/kategori-pelayanan') }}">Kategori</a></li>
+
+                </ul>
+            </li>
+            <li class="parent {{ Request::segment(2) == 'data-master' ? 'active' : '' }}"><a href="#"><i
+                        class="fa fa-suitcase"></i> <span>Manajemen Konsultasi</span></a>
+                <ul class="children">
+
+                    <li class="{{ Request::is('admin/berita') ? 'active' : '' }}"><a
+                            href="{{ url('admin/berita') }}">Konsultasi</a></li>
+                    <li class="{{ Request::is('admin/kategori') ? 'active' : '' }}"><a
+                            href="{{ url('admin/kategori') }}">Kategori</a></li>
+
+                </ul>
+            </li>
+            <li class="parent {{ Request::segment(2) == 'data-master' ? 'active' : '' }}"><a href="#"><i
                         class="fa fa-suitcase"></i> <span>Manajemen Informasi</span></a>
                 <ul class="children">
 

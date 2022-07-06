@@ -16,6 +16,10 @@ use App\Http\Controllers\SkemaController;
 use App\Http\Controllers\UnitKompetensiController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\vi;
+
+use App\Http\Controllers\PelatihanController;
+use App\Http\Controllers\KonsultasiController;
+use App\Http\Controllers\KategoriPController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +35,22 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/save-image', [BeritaController::class, 'image'])->name('ckeditor.image');
 
     Route::prefix('admin')->group(function () {
+          //pelatihan
+          Route::get('pelatihan', [PelatihanController::class, 'index'])->name('pelatihan.index');
+          Route::get('pelatihan/new-post', [PelatihanController::class, 'create'])->name('pelatihan.create');
+          Route::get('pelatihan/show/{id}', [PelatihanController::class, 'show'])->name('pelatihan.show');
+          Route::delete('pelatihan/{id}', [PelatihanController::class, 'destroy']);
+          Route::post('pelatihan', [PelatihanController::class, 'store'])->name('pelatihan.store');
+          Route::post('pelatihan/edit/{id}', [PelatihanController::class, 'edit'])->name('pelatihan.edit');
+          Route::post('pelatihan/gambar', [PelatihanController::class, 'gambar']);
+          //konsultasu
+          Route::get('konsultasi', [KonsultasiController::class, 'index'])->name('konsultasi.index');
+          Route::get('konsultasi/new-post', [KonsultasiController::class, 'create'])->name('konsultasi.create');
+          Route::get('konsultasi/show/{id}', [KonsultasiController::class, 'show'])->name('konsultasi.show');
+          Route::delete('konsultasi/{id}', [KonsultasiController::class, 'destroy']);
+          Route::post('konsultasi', [KonsultasiController::class, 'store'])->name('konsultasi.store');
+          Route::post('konsultasi/edit/{id}', [KonsultasiController::class, 'edit'])->name('konsultasi.edit');
+          Route::post('konsultasi/gambar', [KonsultasiController::class, 'gambar']);
         Route::get('dashboard', [adminController::class, 'index'])->name('dashboard.admin');
         Route::get('profil', [adminController::class, 'show'])->name('admin.show');
         Route::post('profil', [adminController::class, 'store'])->name('admin.store');
@@ -53,6 +73,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('kategori', [KategoriController::class, 'store'])->name('kategori.store');
         Route::post('kategori/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
         Route::delete('kategori/{id}', [KategoriController::class, 'destroy']);
+          //kategori
+          Route::get('kategori-pelayanan', [KategoriPController::class, 'index'])->name('kategorip.index');
+          Route::post('kategori-pelayanan', [KategoriPController::class, 'store'])->name('kategorip.store');
+          Route::post('kategori-pelayanan/edit', [KategoriPController::class, 'edit'])->name('kategorip.edit');
+          Route::delete('kategori-pelayanan/{id}', [KategoriPController::class, 'destroy']);
         //berita
         Route::get('berita', [BeritaController::class, 'index'])->name('berita.index');
         Route::get('berita/new-post', [BeritaController::class, 'create'])->name('berita.create');

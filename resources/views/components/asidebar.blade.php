@@ -25,7 +25,15 @@
 
             </ul>
         </li>
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                <span>Manajemen Pelatihan</span></a>
+            <ul class="dropdown-menu">
+                <li><a class="nav-link" href="layout-default.html">Pelatihan</a></li>
+                <li><a class="nav-link" href="layout-transparent.html">Kategori</a> </li>
 
+            </ul>
+        </li>
         <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i>
                 <span>Manajemen Informasi</span></a>

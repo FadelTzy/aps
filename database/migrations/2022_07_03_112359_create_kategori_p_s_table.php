@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('gambar')->nullable();
             $table->string('judul')->nullable();
-            $table->string('deskripsi')->nullable();
+            $table->string('slug')->nullable();
 
             $table->string('tipe')->nullable();
             $table->timestamps();
