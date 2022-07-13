@@ -18595,7 +18595,6 @@ ul a.rsswidget:hover {
 }
 
 .service_menu_nav ul li a:before {
-    content: "\f30b";
     font-weight: 900;
     font-family: 'Line Awesome Free';
     position: absolute;

@@ -15,6 +15,17 @@ return new class extends Migration
     {
         Schema::create('konsultasis', function (Blueprint $table) {
             $table->id();
+            $table->string('judul')->nullable();
+            $table->string('slug')->nullable();
+
+            $table->string('image')->nullable();
+            $table->string('tanggal')->nullable();
+            $table->string('status')->nullable();
+            $table->string('deskripsi')->nullable();
+            $table->string('manfaat')->nullable();
+            $table->string('paket')->nullable();
+            $table->string('file')->nullable();
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

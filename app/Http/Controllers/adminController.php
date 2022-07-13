@@ -11,17 +11,19 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Berita;
 use App\Models\Agenda;
-use App\Models\Skema;
+use App\Models\konsultasi;
+use App\Models\pelatihan;
 
 class adminController extends Controller
 {
     public function index()
     {
         $Berita = Berita::count();
-        $Skema = Skema::count();
-        $Agenda = Agenda::count();
         $User = User::count();
-        return view('admin.dashboard', compact('Berita', 'Skema', 'Agenda', 'User'));
+        $Konsultasi = Konsultasi::count();
+        $Pelatihan = Pelatihan::count();
+
+        return view('admin.dashboard', compact('Berita', 'Konsultasi','Pelatihan', 'User'));
     }
     public function uindex(Request $request)
     {

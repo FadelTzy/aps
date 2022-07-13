@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('nama')->nullable();
             $table->text('tentang')->nullable();
+            $table->text('legalitas')->nullable();
+            $table->text('ruang_lingkup')->nullable();
+            $table->text('landasan_hukun')->nullable();
             $table->text('visi')->nullable();
             $table->text('misi')->nullable();
             $table->text('mutu')->nullable();

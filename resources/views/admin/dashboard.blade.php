@@ -25,7 +25,7 @@
     <div class="contentpanel">
         <div class="alert alert-info">
             <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-            <strong>SELAMAT DATANG DI,</strong> WEB ADMIN LSP PPHI <a class="alert-link" href="">
+            <strong>SELAMAT DATANG DI,</strong> WEB ADMIN ASP <a class="alert-link" href="">
         </div>
         <div class="row row-stat">
             <div class="col-md-3">
@@ -37,8 +37,8 @@
                         </div><!-- panel-btns -->
                         <div class="panel-icon"><i class="fa fa-graduation-cap"></i></div>
                         <div class="media-body">
-                            <h5 class="md-title nomargin">Total Skema</h5>
-                            <h1 class="mt5">{{ $Skema }}</h1>
+                            <h5 class="md-title nomargin">Total Pelatihan</h5>
+                            <h1 class="mt5">{{$Pelatihan}}</h1>
                         </div><!-- media-body -->
 
 
@@ -73,8 +73,8 @@
                         </div><!-- panel-btns -->
                         <div class="panel-icon"><i class="fa fa-calendar"></i></div>
                         <div class="media-body">
-                            <h5 class="md-title nomargin">Total Agenda</h5>
-                            <h1 class="mt5">{{ $Agenda }}</h1>
+                            <h5 class="md-title nomargin">Total Konsultan Manajemen</h5>
+                            <h1 class="mt5">{{ $Konsultasi }}</h1>
                         </div><!-- media-body -->
 
 

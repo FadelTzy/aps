@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('model')->nullable();
             $table->string('judul')->nullable();
             $table->string('isi')->nullable();
+            $table->string('url')->nullable();
+
             $table->string('file')->nullable();
             $table->timestamps();
         });

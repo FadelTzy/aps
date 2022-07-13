@@ -17,7 +17,7 @@
                     <li><a href="#">Profil</a></li>
 
                 </ul>
-                <h4>Informasi LSP PPHI</h4>
+                <h4>Informasi APS</h4>
             </div>
         </div><!-- media -->
     </div><!-- pageheader -->
@@ -33,7 +33,7 @@
         <div class="panel panel-primary-head">
             {{-- <div class="panel-heading row" style="margin-bottom: 10px;">
                 <div class="col-xs-6">
-                    <h4 class="panel-title">Informasi LSP PPHI</h4>
+                    <h4 class="panel-title">Informasi APS</h4>
                     <p>Manajemen pengelolaan data profil, kontak dan anggota LSP.</p>
                 </div>
                 <div class="col-xs-6 text-right">
@@ -45,8 +45,8 @@
                 <div class="col-md-12">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs nav-primary">
-                        <li class="active"><a href="#home4" data-toggle="tab"><strong>Profil LSP</strong></a></li>
-                        <li><a href="#profile4" data-toggle="tab"><strong>Kontak LSP</strong></a></li>
+                        <li class="active"><a href="#home4" data-toggle="tab"><strong>Profil APS</strong></a></li>
+                        <li><a href="#profile4" data-toggle="tab"><strong>Kontak APS</strong></a></li>
                         <li><a href="#about4" data-toggle="tab"><strong>Anggota</strong></a></li>
                         <li><a href="#link" data-toggle="tab"><strong>Link Daftar</strong></a></li>
                         <li><a href="#ib" data-toggle="tab"><strong>Informasi Beranda</strong></a></li>
@@ -61,14 +61,14 @@
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
 
-                                            <h4 class="panel-title">Manajemen Profil LSP PPHI</h4>
+                                            <h4 class="panel-title">Manajemen Profil APS</h4>
                                         </div>
                                         <div class="panel-body">
                                             <div class="row">
                                                 <form id="formdata" action="">
                                                     <div class="col-sm-12">
                                                         <div class="form-group">
-                                                            <label class="control-label">Nama LSP</label>
+                                                            <label class="control-label">Nama APS</label>
                                                             <input type="text" name="nama" value="{{ $profil->nama }}"
                                                                 placeholder="Input Nama" class="form-control" />
                                                         </div><!-- form-group -->
@@ -76,7 +76,7 @@
 
                                                     <div class="col-sm-12">
                                                         <div class="form-group">
-                                                            <label class="control-label">Tentang</label>
+                                                            <label class="control-label">Deskripsi</label>
                                                             <textarea id="wysiwyg" name="tentang" placeholder="Enter text here..." class="form-control"
                                                                 rows="7">{!! $profil->tentang !!}</textarea>
                                                         </div><!-- form-group -->
@@ -97,9 +97,23 @@
                                                     </div><!-- col-sm-6 -->
                                                     <div class="col-sm-12">
                                                         <div class="form-group">
-                                                            <label class="control-label">Kebijakan Mutu</label>
-                                                            <textarea id="wysiwyg4" name="mutu" placeholder="Enter text here..." class="form-control"
-                                                                rows="7">{!! $profil->mutu !!}</textarea>
+                                                            <label class="control-label">Landasan Hukum</label>
+                                                            <textarea id="wysiwyg4" name="landasan_hukum" placeholder="Enter text here..." class="form-control"
+                                                                rows="7">{!! $profil->landasan_hukun !!}</textarea>
+                                                        </div><!-- form-group -->
+                                                    </div><!-- col-sm-6 -->
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Ruang Lingkup</label>
+                                                            <textarea id="wysiwyg5" name="ruang_lingkup" placeholder="Enter text here..." class="form-control"
+                                                                rows="7">{!! $profil->ruang_lingkup !!}</textarea>
+                                                        </div><!-- form-group -->
+                                                    </div><!-- col-sm-6 -->
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Legalitas</label>
+                                                            <textarea id="wysiwyg6" name="legalitas" placeholder="Enter text here..." class="form-control"
+                                                                rows="7">{!! $profil->legalitas !!}</textarea>
                                                         </div><!-- form-group -->
                                                     </div><!-- col-sm-6 -->
                                                 </form>
@@ -122,7 +136,7 @@
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
 
-                                            <h4 class="panel-title">Manajemen Kontak LSP PPHI</h4>
+                                            <h4 class="panel-title">Manajemen Kontak APS</h4>
                                         </div>
                                         <div class="panel-body">
                                             <div class="row">
@@ -155,7 +169,7 @@
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
-                                                                <label class="control-label">Facebook LSP </label>
+                                                                <label class="control-label">Facebook APS </label>
                                                                 <input type="text" name="facebook"
                                                                     value="{{ $profil->facebook }}"
                                                                     placeholder="Input Facebook" class="form-control" />
@@ -163,7 +177,7 @@
                                                         </div><!-- col-sm-6 -->
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
-                                                                <label class="control-label">Twitter LSP</label>
+                                                                <label class="control-label">Twitter APS</label>
                                                                 <input type="text" name="twitter"
                                                                     value="{{ $profil->twitter }}"
                                                                     placeholder="Input Twitter" class="form-control" />
@@ -173,14 +187,14 @@
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
-                                                                <label class="control-label">Instagram LSP</label>
+                                                                <label class="control-label">Instagram APS</label>
                                                                 <input type="text" name="ig" value="{{ $profil->ig }}"
                                                                     placeholder="Input Instagram" class="form-control" />
                                                             </div><!-- form-group -->
                                                         </div><!-- col-sm-6 -->
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
-                                                                <label class="control-label">Whatsapp LSP</label>
+                                                                <label class="control-label">Whatsapp APS</label>
                                                                 <input type="text" name="wa" value="{{ $profil->wa }}"
                                                                     placeholder="Input WA" class="form-control" />
                                                             </div><!-- form-group -->
@@ -228,9 +242,9 @@
                                                 <a href="#" class="list-group-item ">
                                                     <div class="media row ">
                                                         <div class="pull-left px-3">
-                                                            <img class="img-online"
+                                                            <img class=""
                                                                 src="{{ asset('gambar/foto/') . '/' . $a->foto }} "
-                                                                alt="...">
+                                                                alt="googre.com">
                                                         </div>
                                                         <div class="media-body">
                                                             <h4 class="media-heading">{{ $a->nama }}
@@ -541,7 +555,7 @@
             var data = $(this).serialize();
             $.LoadingOverlay("show");
             $.ajax({
-                url: '{{ route('profil-lsp.store') }}',
+                url: '{{ route('profil-aps.store') }}',
                 data: new FormData(this),
                 type: "POST",
                 contentType: false,
@@ -583,7 +597,7 @@
             var data = $(this).serialize();
             $.LoadingOverlay("show");
             $.ajax({
-                url: '{{ route('profil-lsp.storek') }}',
+                url: '{{ route('profil-aps.storek') }}',
                 data: new FormData(this),
                 type: "POST",
                 contentType: false,
@@ -625,7 +639,7 @@
             var data = $(this).serialize();
             $.LoadingOverlay("show");
             $.ajax({
-                url: '{{ route('profil-lsp.storeb') }}',
+                url: '{{ route('profil-aps.storeb') }}',
                 data: new FormData(this),
                 type: "POST",
                 contentType: false,
@@ -667,7 +681,7 @@
             var data = $(this).serialize();
             $.LoadingOverlay("show");
             $.ajax({
-                url: '{{ route('profil-lsp.storel') }}',
+                url: '{{ route('profil-aps.storel') }}',
                 data: new FormData(this),
                 type: "POST",
                 contentType: false,
@@ -709,7 +723,7 @@
             var data = $(this).serialize();
             $.LoadingOverlay("show");
             $.ajax({
-                url: '{{ route('anggota-lsp.store') }}',
+                url: '{{ route('anggota-aps.store') }}',
                 data: new FormData(this),
                 type: "POST",
                 contentType: false,
@@ -738,6 +752,7 @@
                             '<div class="alert alert-success mt-2 alert-dismissible  rounded " id="suksesnotifu" role="alert">    <strong>Berhasil Menambah Data</strong>    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
                         );
                         $("#listnotif").html('');
+                        location.reload();
                     }
                     $("#myModal").modal('hide');
                 }
@@ -750,7 +765,7 @@
             var data = $(this).serialize();
             $.LoadingOverlay("show");
             $.ajax({
-                url: '{{ route('anggota-lsp.storeu') }}',
+                url: '{{ route('anggota-aps.storeu') }}',
                 data: new FormData(this),
                 type: "POST",
                 contentType: false,
@@ -807,7 +822,7 @@
                 $.LoadingOverlay("show");
 
                 $.ajax({
-                    url: url + '/admin/anggota-lsp/' + id,
+                    url: url + '/admin/anggota-aps/' + id,
                     type: "delete",
                     success: function(e) {
                         $.LoadingOverlay("hide");
@@ -837,6 +852,14 @@
                 html: true
             });
             jQuery('#wysiwyg4').wysihtml5({
+                color: true,
+                html: true
+            });
+            jQuery('#wysiwyg5').wysihtml5({
+                color: true,
+                html: true
+            });
+            jQuery('#wysiwyg6').wysihtml5({
                 color: true,
                 html: true
             });

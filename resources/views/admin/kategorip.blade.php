@@ -207,7 +207,7 @@
                 $.LoadingOverlay("show");
 
                 $.ajax({
-                    url: url + '/admin/kategori/' + id,
+                    url: url + '/admin/kategori-pelayanan/' + id,
                     type: "delete",
                     success: function(e) {
                         $.LoadingOverlay("hide");

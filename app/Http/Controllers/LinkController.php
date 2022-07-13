@@ -28,15 +28,7 @@ class LinkController extends Controller
     public function destroy($id)
     {
         $data = Link::findorfail($id);
-        $path = 'gambar/link/'  . $data->gambar;
-        $bases =  $_SERVER['DOCUMENT_ROOT'];
-        if ($data->gambar != null) {
-            if (file_exists($bases . '/' . $path)) {
-                unlink($bases . '/' . $path);
-            } else {
-                return "gagal hapus foto";
-            }
-        }
+     
         $data->delete();
         return 'success';
     }
@@ -46,7 +38,6 @@ class LinkController extends Controller
         $data = Link::findorfail($request->id);
         $validator = Validator::make($request->all(), [
             'nama' => ['required', 'string', 'max:255'],
-            'file' => ['mimes:jpeg,png,jpg|max:1000'],
         ]);
 
 
@@ -54,24 +45,7 @@ class LinkController extends Controller
             $data = ['status' => 'error', 'data' => $validator->errors()];
             return $data;
         }
-        if (request()->file('file')) {
-            $path = '/gambar/link/' . $data->gambar;
-            $bases =  $_SERVER['DOCUMENT_ROOT'];
-            if ($data->gambar != null) {
-                if (file_exists($bases . '/' . $path)) {
-                    unlink($bases . '/' . $path);
-                    $data->gambar = null;
-                } else {
-                    return "gagal hapus foto";
-                }
-            }
-
-            $gmbr = request()->file('file');
-            $nama_file = str_replace(' ', '_', time() . "_" . $gmbr->getClientOriginalName());
-            $tujuan_upload = 'gambar/link';
-            $gmbr->move($tujuan_upload, $nama_file);
-            $data->gambar = $nama_file ?? null;
-        }
+        
         $data->judul = $request->nama;
 
         $data->meta = $request->link;
@@ -97,18 +71,7 @@ class LinkController extends Controller
                
                 </ul>";
                 return $btn;
-            })->addColumn('gambarx', function ($data) {
-                if ($data->gambar == null) {
-                    $btn = '-';
-                } else {
-                    $btn = " <img src='" . asset('gambar/link/') . '/' . $data->gambar . "' class='img-thumbnail mt-1' alt=''>";
-                }
-
-                return $btn;
-            })->addColumn('tiklos', function ($data) {
-                $btn = "<a class='badge badge-primary' target='_blank' href='" . $data->maps . "'>Lihat Lokasi</a>";
-                return $btn;
-            })->rawColumns(['aksi', 'gambarx'])->make(true);
+            })->rawColumns(['aksi'])->make(true);
         }
         return view('admin.link');
     }
@@ -116,20 +79,14 @@ class LinkController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'nama' => ['required', 'string', 'max:255'],
-            'file' => ['mimes:jpeg,png,jpg|max:1000'],
         ]);
         if ($validator->fails()) {
             $data = ['status' => 'error', 'data' => $validator->errors()];
             return $data;
         }
-        if (request()->file('file')) {
-            $gmbr = request()->file('file');
-            $nama_file = str_replace(' ', '_', time() . "_" . $gmbr->getClientOriginalName());
-            $tujuan_upload = 'gambar/link';
-            $gmbr->move($tujuan_upload, $nama_file);
-        }
+      
         $data =  Link::create([
-            'gambar' => $nama_file ?? null,
+            'gambar' =>  null,
             'meta' => $request->link,
             'judul' => $request->nama,
         ]);

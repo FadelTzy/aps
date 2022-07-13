@@ -50,7 +50,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Link</th>
-                        <th>Logo </th>
+                        <th>Link </th>
                         <th>Aksi</th>
 
                     </tr>
@@ -88,16 +88,7 @@
                                     </div><!-- input-group -->
                                     <br>
                                 </div>
-                                <div class="col-md-5">
-                                    <label>Logo</label>
-                                    <div class="input-group">
-                                        <input type="file" name="file" id="fileP" class="form-control">
-                                        <span class="input-group-addon"><i class=" fa fa-check"></i></span>
-                                    </div><!-- input-group -->
-                                    <img src="" class="img-thumbnail mt-1" id="preview" alt="">
-                                    <div class="d-none" id="infoimage"></div>
-                                    <br>
-                                </div>
+                           
                             </div>
 
 
@@ -121,7 +112,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabelu">Edit TUK</h4>
+                    <h4 class="modal-title" id="myModalLabelu">Edit Link</h4>
                 </div>
                 <div class="modal-body">
                     <div class="panel-body nopadding">
@@ -146,16 +137,7 @@
                                     </div><!-- input-group -->
                                     <br>
                                 </div>
-                                <div class="col-md-5">
-                                    <label>Logo</label>
-                                    <div class="input-group">
-                                        <input type="file" name="file" id="filePu" class="form-control">
-                                        <span class="input-group-addon"><i class=" fa fa-check"></i></span>
-                                    </div><!-- input-group -->
-                                    <div id="justtag"></div>
-                                    <div class="d-none" id="infoimageu"></div>
-                                    <br>
-                                </div>
+                      
                             </div>
 
 
@@ -190,42 +172,9 @@
         });
         var url = window.location.origin;
 
-        function bytesToSize(bytes) {
-            var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-            if (bytes == 0) return '0 Byte';
-            var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
-            return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
-        }
-        fileP.onchange = evt => {
-            const [file] = fileP.files
-            if (file) {
-                preview.src = URL.createObjectURL(file)
-                $("#infoimage").removeClass("d-none").html('File Size: ' + bytesToSize(fileP.files[0].size))
-            }
-        }
-        $("#preview").on('click', function() {
-            $("#fileP").val('');
-            preview.src = '';
-            $("#preview").html('');
-            $("#infoimage").html('');
-
-        })
-        filePu.onchange = evt => {
-            const [file] = filePu.files
-            if (file) {
-                previewu.src = URL.createObjectURL(file)
-                $("#infoimageu").removeClass("d-none").html('File Size: ' + bytesToSize(filePu.files[0].size))
-            }
-            $("#btndelim").hide();
-        }
+       
         $(document).ready(function() {
-            $("#previewu").on('click', function() {
-                $("#filePu").val('');
-                previewu.src = '';
-                $("#previewu").html('');
-                $("#infoimageu").html('');
-
-            })
+          
         });
 
         $("#submitdata").on('click', function() {
@@ -245,10 +194,7 @@
                 contentType: false,
                 processData: false,
                 success: function(id) {
-                    $("#fileP").val('');
-                    preview.src = '';
-                    $("#preview").html('');
-                    $("#infoimage").html('');
+     
                     $.LoadingOverlay("hide");
                     $("#tambahdata").trigger('reset');
                     if (id.status == 'error') {
@@ -457,8 +403,8 @@
                         data: 'judul'
                     },
                     {
-                        nama: 'gambarx',
-                        data: 'gambarx'
+                        nama: 'meta',
+                        data: 'meta'
                     },
                     {
                         name: 'aksi',

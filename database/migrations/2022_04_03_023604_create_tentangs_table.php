@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('ttd')->nullable();
             $table->string('nama')->nullable();
             $table->string('judul')->nullable();
-            $table->string('isi')->nullable();
+            $table->text('isi')->nullable();
             $table->timestamps();
         });
     }

@@ -43,9 +43,9 @@ class ProfillspController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'nama' => ['string', 'max:255'],
-            'visi' => ['string'],
-            'misi' => ['string'],
-            'mutu' => ['string'],
+            'landasan_hukum' => ['string'],
+            'ruang_lingkup' => ['string'],
+            'legalitas' => ['string'],
             'tentang' => ['string'],
         ]);
         if ($validator->fails()) {
@@ -58,7 +58,9 @@ class ProfillspController extends Controller
                 'tentang' => $request->tentang,
                 'visi' => $request->visi,
                 'misi' => $request->misi,
-                'mutu' => $request->mutu,
+                'landasan_hukun' => $request->landasan_hukum,
+                'legalitas' => $request->legalitas,
+                'ruang_lingkup' => $request->ruang_lingkup,
             ]);
             if ($user) {
                 return 'success';

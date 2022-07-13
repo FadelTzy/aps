@@ -32,17 +32,17 @@
                     <div class="extra-cell">
                         <div class="search-inhead">
                             <div class="dz-quik-search On">
-                                <form action="#">
-                                    <input name="search" value="" type="text" class="form-control"
+                                <form action="{{url('berita')}}" id="beritasearch" action="#">
+                                    <input name="cari" value="" type="text" class="form-control"
                                         placeholder="Search">
                                     <span id="quik-search-remove"><i class="ti-close"></i></span>
                                 </form>
                             </div>
-                            <a class="search-link" id="quik-search-btn" href="javascript:void(0);">
+                            <a class="search-link" id="quik-search-btn" onclick="dejavu()" href="javascript:void(0);">
                                 <i class="fas fa-search"></i>
                             </a>
                         </div>
-                        <a href="javascript:void(0);"
+                        <a href=" {{ Cache::get('tl')[0]->linkregister }}"
                             class="btn btn-secondary d-xl-inline-block d-none btn-border btn-border-secondary m-r10 m-b10">DAFTAR
                             SEKARANG</a>
                     </div>
@@ -59,35 +59,54 @@
                         </li>
                         <li class="sub-menu-down"><a href="javascript:void(0);"><span>Tentang Kami</span></a>
                             <ul class="sub-menu">
-                                <li><a href="{{ url('/tentang-kami/profil') }}">Profil Perusahaan</a></li>
-                                <li><a href="index.html">Visi & Misi</a></li>
-                                <li><a href="index-2.html">Profil Tenaga Ahli</a></li>
-                                <li><a href="index-3.html">Relasi / Mitra Kerja</a></li>
+                                <li><a href="{{ url('/profil') }}">Profil Perusahaan</a></li>
+                                <li><a href="{{url('visi-misi')}}">Visi & Misi</a></li>
+                                <li><a href="{{url('tenaga-ahli')}}">Profil Tenaga Ahli</a></li>
+                                <li><a href="{{url('mitra-kerja')}}">Relasi / Mitra Kerja</a></li>
+                                <li><a href="{{url('client-aps')}}">Client APS</a></li>
+
                             </ul>
                         </li>
 
-                        <li class="sub-menu-down"><a href="javascript:void(0);"><span>Pelatihan</span></a>
+                        <li class="sub-menu-down"><a href="{{ url('pelatihan')}}"><span>Pelatihan</span></a>
                             <ul class="sub-menu">
-                                <li><a href="{{ url('pelatihan') }}">Pelatihan A</a></li>
-                                <li><a href="blog-large-right-sidebar.html">Pelatihan B</a></li>
-                                <li><a href="blog-list-sidebar.html">Pelatihan C</a></li>
-                                <li><a href="blog-list-left-sidebar.html">Pelatihan D</a></li>
+                                @foreach (Cache::get('mp') as $item)
+                                    <li><a href="{{ url('pelatihan').'?kategori=' . $item->id }}">{{$item->judul}}
+                                    </a></li>
+                                @endforeach
+                              
 
                             </ul>
                         </li>
-                        <li class="sub-menu-down"><a href="javascript:void(0);"><span>Konsultasi</span></a>
+                        <li class="sub-menu-down"><a href="{{ url('konsultasi')}}"><span>Konsultasi</span></a>
                             <ul class="sub-menu">
-                                <li><a href="{{ url('konsultasi') }}">Konsultasi A</a></li>
-                                <li><a href="blog-large-right-sidebar.html">Konsultasi B</a></li>
-                                <li><a href="blog-list-sidebar.html">Konsultasi C</a></li>
-                                <li><a href="blog-list-left-sidebar.html">Konsultasi D</a></li>
+                                @foreach (Cache::get('kl') as $item)
+                                <li><a href="{{ url('konsultasi').'/' . $item->slug }}">{{$item->judul}}
+                                </a></li>
+                            @endforeach
+                               
                             </ul>
                         </li>
-                        <li><a href="{{ url('berita') }}"><span>Berita</span></a>
+                        <li class="sub-menu-down"><a href="{{ url('sertifikasi')}}"><span>Sertifikasi</span></a>
+                            <ul class="sub-menu">
+                                @foreach (Cache::get('sr') as $item)
+                                <li><a href="{{ url('sertifikasi').'/' . $item->slug }}">{{$item->judul}}
+                                </a></li>
+                            @endforeach
+                               
+                            </ul>
+                        </li>
+                        <li><a href="{{ url('berita') }}"><span>Berita</span></a></li>
 
-                        <li><a href="#"><span>E - Dokumen</span></a>
-
-                        <li><a href="{{ url('kontak') }}"><span>Kontak</span></a>
+                        <li class="sub-menu-down"><a href="#"><span>E - Dokumen</span></a>
+                            <ul class="sub-menu">
+                                @foreach (Cache::get('edok') as $item)
+                                <li><a target="_blank" href="{{  url($item->meta) }}">{{$item->judul}}
+                                </a></li>
+                            @endforeach
+                               
+                            </ul>
+                        </li>                        <li><a href="{{ url('kontak') }}"><span>Kontak</span></a></li>
 
                     </ul>
                     <div class="dz-social-icon">

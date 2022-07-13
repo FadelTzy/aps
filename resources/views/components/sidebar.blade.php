@@ -16,9 +16,8 @@
             <li class="{{ Request::segment(2) == 'dashboard' ? 'active' : '' }}"><a href=""><i
                         class="fa fa-home"></i> <span>Dashboard</span></a>
             </li>
-            <li class="{{ Request::segment(2) == 'profil-lsp' ? 'active' : '' }}"><a
-                    href="{{ url('admin/profil-lsp') }}"><i class="fa fa-home"></i> <span>Informasi LSP
-                        PPHI</span></a>
+            <li class="{{ Request::segment(2) == 'profil-aps' ? 'active' : '' }}"><a
+                    href="{{ url('admin/profil-aps') }}"><i class="fa fa-home"></i> <span>Informasi APS</span></a>
             </li>
             <h5 class="leftpanel-title">Manajemen Data</h5>
 
@@ -44,38 +43,43 @@
 
                 </ul>
             </li>
+            <li class="{{ Request::segment(2) == 'konsultasi' ? 'active' : '' }}"><a href="{{ url('admin/konsultasi') }}"><i
+                class="fa fa-home"></i> <span>Manajemen Konsultasi</span></a>
+    </li>
+    <li class="{{ Request::segment(2) == 'sertifikasi' ? 'active' : '' }}"><a href="{{ url('admin/sertifikasi') }}"><i
+        class="fa fa-home"></i> <span>Manajemen Sertifikasi Kompetensi</span></a>
+</li>
+        
             <li class="parent {{ Request::segment(2) == 'data-master' ? 'active' : '' }}"><a href="#"><i
-                        class="fa fa-suitcase"></i> <span>Manajemen Konsultasi</span></a>
+                        class="fa fa-suitcase"></i> <span>Instruktur & Mitra</span></a>
                 <ul class="children">
 
-                    <li class="{{ Request::is('admin/berita') ? 'active' : '' }}"><a
-                            href="{{ url('admin/berita') }}">Konsultasi</a></li>
-                    <li class="{{ Request::is('admin/kategori') ? 'active' : '' }}"><a
-                            href="{{ url('admin/kategori') }}">Kategori</a></li>
-
+                    <li class="{{ Request::is('admin/instruktur') ? 'active' : '' }}"><a
+                            href="{{ url('admin/instruktur') }}">Instruktur</a></li>
+                    <li class="{{ Request::is('admin/mitra') ? 'active' : '' }}"><a
+                            href="{{ url('admin/mitra') }}">Mitra</a></li>
+                            <li class="{{ Request::is('admin/client-list') ? 'active' : '' }}"><a
+                                href="{{ url('admin/client-list') }}">Client</a></li>
                 </ul>
             </li>
             <li class="parent {{ Request::segment(2) == 'data-master' ? 'active' : '' }}"><a href="#"><i
                         class="fa fa-suitcase"></i> <span>Manajemen Informasi</span></a>
                 <ul class="children">
 
-                    <li class="{{ Request::is('admin/tuk') ? 'active' : '' }}"><a
-                            href="{{ url('admin/tuk') }}">TUK</a></li>
-                    <li class="{{ Request::is('admin/agenda') ? 'active' : '' }}"><a
-                            href="{{ url('admin/agenda') }}">Agenda</a></li>
+                    <li class="{{ Request::is('admin/client') ? 'active' : '' }}"><a
+                            href="{{ url('admin/client') }}">Client</a></li>
+                    {{-- <li class="{{ Request::is('admin/agenda') ? 'active' : '' }}"><a
+                            href="{{ url('admin/agenda') }}">Agenda</a></li> --}}
                     {{-- <li class="{{ Request::is('admin/pengumuman') ? 'active' : '' }}"><a
                             href="{{ url('admin/pengumuman') }}">Pengumuman</a></li> --}}
-                    <li class="{{ Request::is('admin/prosedur-uji-kompetensi') ? 'active' : '' }}"><a
-                            href="{{ url('admin/prosedur-uji-kompetensi') }}">PUK</a></li>
+ 
                     <li class="{{ Request::is('admin/link') ? 'active' : '' }}"><a
                             href="{{ url('admin/link') }}">Link</a></li>
                     <li class="{{ Request::is('admin/banner') ? 'active' : '' }}"><a
                             href="{{ url('admin/banner') }}">Banner</a></li>
                 </ul>
             </li>
-            <li class="{{ Request::segment(2) == 'skema' ? 'active' : '' }}"><a href="{{ url('admin/skema') }}"><i
-                        class="fa fa-users"></i> <span>Manajemen
-                        Skema</span></a></li>
+           
             <h5 class="leftpanel-title">Manajemen User</h5>
 
             <li class="{{ Request::segment(2) == 'profil' ? 'active' : '' }}"><a
